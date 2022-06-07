@@ -1,0 +1,34 @@
+01 - foto na tabela necessidades -- OK
+02 - autocomplete off nos inputs -- OK
+03 - estrutura e nome dos arquivos da pasta do projeto -- OK
+04 - situação da documentação (aula da carol)
+05 - criptografia da senha
+06 - verificação do email já cadastrado
+07 - adicionar apelido? -- Não precisa
+08 - mensagens de erro, alerta e confirmação
+09 - validação dos dados de formulario
+10 - sessão php
+11 - Navegação/Menus
+12 - Adicionar campo descrição no cadastro de necessidades -- OK
+13 - terminar as imagens das necessidades -- OK
+14 - Centralizar conteudo da primeira seção de home -- OK
+15 - Arrumar html/css pagina sobre -- OK
+16 - Arrumar html/css pagina entidades - Só na Etec
+16 - Arrumar html/css pagina cadastro de necessidades 
+17 - php cadastro de necessidades
+18 - Enviar emails(contato e recuperar senha)
+19 - Cria pagina perfil das entidades - OK
+20 - adicionar campo de email na pagina contato -- OK
+21 - Adicionar Labels no cadastro -- OK
+22 - Adicionar labels no js do cadastro 
+23 - Popular tabelas e realizar backup
+24 - alterar tamanho dos campos telefone e celular
+25 - Adicionar campo descrição na tabela necessidades 
+26 - Enviar mensagem de email no formulario de duvidas
+27 - Adicionar campos descricao e site da tabela entidade no inserir_usuario.php
+28 - Adicionar campos descricao e site no cadastro_dinamico.js
+29 - verificar sessão da pagina home enquanto o usuario estiver logado
+30 - Remoção do campo descrição do cadastro de necessidades -- OK
+32 - Corrigir mascara do cpf do cadastro de usuarios
+33 - backup dos dados
+34 - Configurar POP/IMAP

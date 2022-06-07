@@ -1,0 +1,67 @@
+//funções
+//Dependencias: (MaskedinputJquery.js, Jquery.js, PriceFormat.js)
+var Formatacoes = function() { 
+      $(".cep").mask("99999-999");
+      $(".cpf").mask("999.999.999-99");
+      $(".telefone").mask("(99) 9999-9999");
+      $(".celular").mask("(99) 9999*-9999");
+      $(".data").mask("99/99/9999", {
+                  completed: function () {
+                               var date = this.val();
+                               var ardt = new Array;
+                               var ExpReg = new RegExp("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}");
+                               ardt = date.split("/");
+                               erro = false;
+                               if (date.search(ExpReg) == -1) {
+                                   erro = true;
+                               }
+                               else if (((ardt[1] == 4) || (ardt[1] == 6) || (ardt[1] == 9) || (ardt[1] == 11)) && (ardt[0] > 30)) {
+                                   erro = true;
+                               }
+                               else if (ardt[1] == 2) {
+                                   if ((ardt[0] > 28) && ((ardt[2] % 4) != 0))
+                                       erro = true;
+                                   if ((ardt[0] > 29) && ((ardt[2] % 4) == 0))
+                                       erro = true;
+                               }
+                               if (erro) {
+                                   alert("\"" + date + "\" não é uma data válida.");
+                                   this.val("");
+                                   this.focus();
+                                   return false;
+                               }
+                               return true;
+                           }
+                     });
+      $(".valor").priceFormat({ 
+                  prefix: '',
+                  centsSeparator: ',',
+                  thousandsSeparator: '.'
+               });   
+}
+
+var MenuBanner = function () {
+    $("#menu_banner").on("mouseenter", "a", function (event) {
+        event.preventDefault();
+
+        var objLink = $(this),
+            liParent = objLink.parent(),
+            ulMenu = objLink.closest("ul"),
+            img = objLink.data("img");
+
+        ulMenu.children("li").removeClass("ativo");
+        liParent.addClass("ativo");
+
+        $("#imgBanner").attr("src", "images/" + img);
+    });
+}
+
+var _initObjs = {
+    formatacoes: Formatacoes,
+    menuBanner: MenuBanner
+}
+
+$(function(){
+    _initObjs.formatacoes();
+    _initObjs.menuBanner();
+});

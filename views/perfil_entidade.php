@@ -1,0 +1,88 @@
+<?php
+  require 'php/conexao.php';
+
+  $id_entidade = $_GET['entidade'];
+
+  $query = $conn->prepare('SELECT usuario.id, 
+                                  nome, 
+                                  foto, 
+                                  descricao,
+                                  email,
+                                  site,
+                                  endereco,
+                                  numero,
+                                  cidade,
+                                  uf,
+                                  cep,
+                                  telefone,
+                                  email
+                           FROM usuario 
+                           INNER JOIN entidade 
+                           ON usuario.id = entidade.usuario_id
+                           WHERE usuario.id = '.$id_entidade);
+
+  $query->execute();
+
+  $entidade = $query->fetch(PDO::FETCH_ASSOC)
+?>
+
+<div class="container">
+  <div class="card text-center py-3">
+    <h1>Informações do Perfil</h1>
+    <div class="row">
+      <div class="col-3">
+        <div class="card  ml-2">
+          <div class="card-body">
+            <img class="justify-content-center img-fluid " src="fotos/<?php echo $entidade['foto']; ?>" alt="">
+            <h3 class="py-1"><?php echo $entidade['nome']; ?></h3>
+          </div>
+        </div>
+        <div class="py-3">
+          <div class="card  ml-2 py">
+            <div class="card-body">
+              <i style="color: black;" class="far fa-envelope"></i> <a href="">
+                <p><?php echo $entidade['email']; ?></p>
+              </a>
+              <hr>
+              <i style="color: black;" class="fas fa-external-link-alt"></i><a target="_blank"
+                href="http://<?php echo $entidade['site']; ?>/">
+                <h4>Acesse a página oficial</h4>
+              </a>
+              <hr>
+              <i style="color: black;" class="fas fa-phone"></i>
+              <p>Fone: <?php echo $entidade['telefone']; ?></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="card">
+          <div class="card-body">
+            <label for="Informacao">Informações sobre a <?php echo $entidade['nome']; ?></label>           
+            <div style="height: 200px; background-color: rgba(104, 104, 104, 0.1);">
+              <!-- <h1>Descrições</h1> -->
+              <p><?php echo $entidade['descricao']; ?></p>
+            </div>
+            <hr>
+            <div style="height: 100px; background-color: rgba(104, 104, 104, 0.1);">
+              <br>
+              <h2>Endereço:</h2>
+              <p><?php echo $entidade['endereco']; ?>, <?php echo $entidade['numero']; ?> - <?php echo $entidade['cidade']; ?> - <?php echo $entidade['uf']; ?> - CEP <?php echo $entidade['cep']; ?></p>
+            </div>
+            <hr>
+            <div style="height: 500px; background-color: rgba(104, 104, 104, 0.1);">
+              <!--Google map-->
+              <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14803.02366522129!2d-50.498784!3d-21.943933!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5643bd4199705883!2sAssocia%C3%A7%C3%A3o%20de%20Pais%20e%20Amigos%20dos%20Excepcionais%20de%20Tupa%20Escola%20de%20Educa%C3%A7%C3%A3o%20Especial!5e0!3m2!1spt-BR!2sbr!4v1571784845918!5m2!1spt-BR!2sbr"
+                  width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>"
+                frameborder="0" style="border:0" allowfullscreen></iframe>
+              </div>
+              <!--Google Maps-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

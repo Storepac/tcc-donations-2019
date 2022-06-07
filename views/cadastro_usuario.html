@@ -1,0 +1,345 @@
+<section id="register">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <form class=" border border-light p-5" action="php/inserir_usuario.php" method="POST" enctype="multipart/form-data">
+          <p class="h4 text-center">Cadastro de pessoa</p>
+          <select name="tipo_usuario" id="tipo_usuario" class="browser-default custom-select col-md-3 ">
+            <option value="f">Pessoa Física</option>
+            <option value="j">Pessoa Jurídica</option>
+            <option value="e">Entidade</option>
+          </select>
+          <div class="form-row mb-6 py-3">
+            <div class="col nome">
+              <!-- NOME -->
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" class="form-control" placeholder="Insira seu nome completo" autocomplete="off">
+            </div>
+            <div class="col-md-4">
+              <!-- CPF -->
+              <label for="documento">Registro de documento</label>
+              <input type="text" id="cpf_cnpj" name="cpf_cnpj" class="form-control" placeholder="CPF/CNPJ" autocomplete="off">
+            </div>
+          </div>
+          <div class="descricao"></div>
+          <div class="form-row py-3">
+            <div class="col-md-2">
+              <!--CEP-->
+              <label for="cep">CEP</label>
+              <input type="text" id="cep" name="cep" class="form-control cep" placeholder='00.000-000'  onblur="pesquisacep(this.value);">
+            </div>
+            <div class="col-md-8">
+              <!-- ENDEREÇO -->
+              <label for="endereco">Endereço</label>
+              <input type="text" id="endereco" name="endereco" class="form-control" placeholder="Endereço">
+            </div>
+            <div class="col-md-2">
+              <!--NUMERO-->
+              <label for="numero">Número</label>
+              <input type="text" id="numero" name="numero" class="form-control" placeholder="Ex: 811A">
+            </div>
+          </div>
+          <div class="form-row mb-4 py3">
+            <div class="col-md-6">
+              <!--BAIRRO-->
+              <label for="bairro">Bairro</label>
+              <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Informe seu bairro">
+            </div>
+            <div class="col-md-4">
+              <!--CIDADE-->
+              <label for="cidade">Cidade</label>
+              <input type="text" id="cidade" name="cidade" class="form-control" placeholder="">
+            </div>
+            <!--UF-->            
+            <div class="col-md-2">
+                <label for="uf">Estado</label>
+              <select id="uf" name="uf" class="form-control">
+                <option value="AC">AC</option>
+                <option value="AL">AL</option>
+                <option value="AM">AM</option>
+                <option value="AP">AP</option>
+                <option value="BA">BA</option>
+                <option value="CE">CE</option>
+                <option value="DF">DF</option>
+                <option value="ES">ES</option>
+                <option value="GO">GO</option>
+                <option value="MA">MA</option>
+                <option value="MG">MG</option>
+                <option value="MS">MS</option>
+                <option value="MT">MT</option>
+                <option value="PA">PA</option>
+                <option value="PB">PB</option>
+                <option value="PE">PE</option>
+                <option value="PI">PI</option>
+                <option value="PR">PR</option>
+                <option value="RJ">RJ</option>
+                <option value="RN">RN</option>
+                <option value="RS">RS</option>
+                <option value="RO">RO</option>
+                <option value="RR">RR</option>
+                <option value="SC">SC</option>
+                <option value="SE">SE</option>
+                <option value="SP">SP</option>
+                <option value="TO">TO</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row mb-4">
+            <div class="col">
+              <!-- DATA DE NASCIMENTO -->
+              <label for="nascimento" class="nascimento">Data de nascimento</label>
+              <input type="text" id="data_nascimento" name="data_nascimento" class="form-control data"
+                placeholder="dd/mm/aaaa">
+            </div>
+            <div class="col">
+              <!-- TELEFONE -->
+              <label for="">Telefone</label>
+              <input type="text" id="telefone" name="telefone" class="form-control numero telefone">
+            </div>
+            <div class="col">
+              <!-- CELULAR -->
+              <label for="celular" id="t">Celular</label>
+              <input type="text" id="celular" name="celular" class="form-control numero celular" placeholder="Celular">
+            </div>
+          </div>
+          <div class="form-row mb-4">
+            <!-- E-mail -->            
+            <div class="col">
+                <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" class="form-control mb-4" placeholder="E-mail" autocomplete="off">
+            </div>
+            <!-- Password -->            
+            <div class="col">
+                <label for="senha">Senha</label>
+              <input type="password" id="senha" name="senha" class="form-control" placeholder="Insira uma senha forte"
+                aria-describedby="defaultRegisterFormPasswordHelpBlock">
+              <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                Pelo menos 8 caracteres e 1 dígito
+              </small>
+            </div>
+            <!-- Campo pra imagem-->           
+            <div class="col justify-content-center">
+                <label for="">Imagem de Perfil</label>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="foto" name="foto" aria-describedby="fileInput">
+                <label class="custom-file-label" for="fileInput">Imagem </label>
+              </div>
+            </div>
+          </div>
+          <!-- Sign up button -->
+          <button class="btn btn-info my-4 btn-block" type="submit" name="ok">Cadastre-se</button>
+
+          <hr> 
+
+          <!-- Termos -->
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+            <label class="custom-control-label" for="defaultUnchecked">Aceito os Termos de uso</label>
+          </div>
+          <p>Por Donations
+            se você concorda com o nosso
+            <a href="" data-toggle="modal" data-target="#centralModalSm">Termos de uso</a>
+            
+            <!-- Central Modal Small -->
+            <div class="modal fade" id="centralModalSm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+              aria-hidden="true">            
+              <!-- Change class .modal-sm to change the size of the modal -->
+              <div class="modal-dialog modal-lg" role="document">                
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2 class="modal-title w-100 text-center" id="myModalLabel">Termos de uso</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col">
+                           <h3>A utilização do site “Canal de Doações” para se cadastrar como Recebedor ou Doador atribui a condição
+                            de Usuário (o "Usuário").</h3>
+            
+                            <p> utilização por parte do Usuário das ferramentas do site “Canal de Doações” importará na sua adesão e
+                            aceitação expressas às Condições Gerais de Uso, em qualquer dos suportes digitais em que se encontre,
+                            desde o momento em que o Usuário acesse o mesmo, se cadastrando ou não, assim como às Condições
+                            Particulares que, de acordo com o caso, sejam aplicáveis, usando-o de acordo legislação vigente, a moral
+                            e a ordem pública.</p>
+            
+                            <p>O Usuário reconhece e aceita que o uso do site “Canal de Doações” será feito por sua exclusiva conta,
+                            risco e responsabilidade. Compromete-se, igualmente, a fazer um uso adequado das ferramentas do site
+                            “Canal de Doações” e a não empregá-las para realizar atividades: (i) ilícitas; (ii) que constituam crime
+                            ou contravenção; (iii) que atentem contra direitos de terceiros e/ou que infrinjam a legislação sobre
+                            propriedade intelectual e industrial, ou quaisquer outras normas do atual ordenamento jurídico
+                            brasileiro.</p>
+            
+                            <p>O Usuário garante que o cadastro de suas “Necessidades”, “Donativos”, avaliação, comentários e
+                            depoimentos não violam quaisquer direitos de terceiros. Assim sendo, no caso de reclamação, judicial ou
+                            extrajudicial, por parte de qualquer terceiro, relativa a qualquer cadastro, imagens, textos ou
+                            informações, o Usuário assume a completa (integral) responsabilidade, e compromete-se a garantir a
+                            isenção de responsabilidade da idealizadora, apoiadores e colaboradores do site “Canal de Doações” de
+                            qualquer dano ou custo decorrente.</p>
+            
+                            <p>O site “Canal de Doações” reserva-se o direito de remover os cadastros, imagens, textos ou informações
+                            que não estejam de acordo com os TERMOS E CONDIÇÕES gerais de uso e suas políticas. O USUÁRIO reconhece
+                            que o site “Canal de Doações” não possui qualquer responsabilidade no que diz respeito ao conteúdo dos
+                            cadastros, mensagens, imagens e textos inseridos pelos usuários.</p>
+            
+                            <p>O Usuário ainda se compromete a não transmitir, introduzir, difundir e colocar a disposição de
+                            terceiros, qualquer tipo de material e informação (dados de conteúdos, mensagens, desenhos, arquivos de
+                            som e imagem, fotografias, software, etc.) que sejam contrários à legislação vigente, à moral, à ordem
+                            pública e às presentes Condições Gerais de Uso e, conforme o caso, às Condições Particulares.</p>
+            
+                            <p>A título enunciativo, e em nenhuma hipótese limitativo ou excludente, o Usuário se compromete a:</p>
+            
+                            <p>1. não introduzir ou difundir conteúdos ou propaganda de caráter racista, xenófobo, pornográfico,
+                            terrorista ou que atentem contra os diretos humanos;</p>
+                            <p>2. não introduzir ou difundir na rede programas de dados (vírus e software nocivo) que possam provocar
+                            danos aos sistemas informáticos do provedor de acesso, aos sistemas informáticos do site “Canal de
+                            Doações” ou a terceiros Usuários da rede Internet;</p>
+                            <p>3. não difundir, transmitir ou disponibilizar a terceiros qualquer tipo de informação, elemento ou
+                            conteúdo que atente contra os diretos fundamentais, as liberdades públicas reconhecidas pela legislação
+                            vigente e quaisquer tratados internacionais vigentes;</p>
+                            <p>4. não difundir, transmitir ou disponibilizar a terceiros qualquer tipo de informação, elemento ou
+                            conteúdo que constitua publicidade ilícita ou desleal;</p>
+                            <p>5. não transmitir publicidade não solicitada ou autorizada, material publicitário, "spam", "e-mail de
+                            correntes", "marketing piramidal", ou qualquer outra forma de solicitação, exceto em áreas (tais como
+                            espaços comerciais) que tenham sido exclusivamente concebidas para tal uso;</p>
+                            <p>6. não introduzir ou difundir qualquer informação que tenha conteúdo falso, ambíguo ou inexato de forma
+                            a induzir a erro eventuais receptores de referida informação;</p>
+                            <p>7. não utilizar senhas de registro aos distintos serviços e/ou conteúdos do site “Canal de Doações” que
+                            sejam de titularidade de outros Usuários, de modo a prejudicar ou causar dano a referidos Usuários;</p>
+                            <p>8. não difundir, transmitir ou colocar a disposição de terceiros qualquer tipo de informação, elemento
+                            ou conteúdo que implique em violação dos direitos de propriedade intelectual e industrial, patentes,
+                            marcas ou copyright de titularidade do idealizador do site “Canal de Doações” ou de terceiros;</p>
+                            <p>9. não difundir, transmitir ou colocar à disposição de terceiros qualquer tipo de informação, elemento
+                            ou conteúdo que implique em violação ao sigilo das comunicações e à privacidade;</p>
+                            <p>10. não incluir nas páginas do site “Canal de Doações” conteúdos que:
+                              <br>
+                            (a) indiquem, promovam ou façam apologia à discriminação sexual, racial, religiosa ou à violação dos
+                            direitos fundamentais e das liberdades reconhecidas pelas leis do Brasil;<br>
+                            (b) induzam ou incitem os Usuários do site “Canal de Doações” a atuar de forma ilegal ou levem referidos
+                            Usuários a conclusões errôneas por inexatidão, omissão ou similares;<br>
+                            (c) contenham informação falsa, ambígua ou inexata;<br>
+                            (d) infrinjam normas constitucionais, legais ou regulamentares sobre o sigilo das comunicações, a
+                            propriedade intelectual, o direito à honra e à intimidade pessoal, ou que incorporem conteúdos,
+                            mensagens ou produtos de caráter violento ou degradante ou ainda protegido pelo atual ordenamento
+                            jurídico.</p><br><br>
+                            <div class="text-center">
+                            <h2>Modificações</h2>
+                          </div>
+                            <p>Estas Condições Gerais de Uso e as Condições Particulares poderão sofrer alterações periódicas, seja por
+                            questões legais ou estratégicas da idealizadora e moderadora do site “Canal de Doações”. O Usuário desde
+                            já concorda e reconhece que é de sua única e inteira responsabilidade a verificação periódica destas
+                            Condições Gerais de Uso e das Condições Particulares. A idealizadora e moderadora do site “Canal de
+                            Doações” poderá, por mera liberalidade, informar ao Usuário sobre alterações significativas, através de
+                            avisos na página do site “Canal de Doações”.</p>
+            
+                            <div class="text-center">
+                            <h2>Direito de exclusão</h2>
+                            </div>
+                            <p> idealizadora e moderadora se reserva o direito de recusar ou retirar o acesso ao site “Canal de
+                            Doações”, sem necessidade de aviso prévio direto ou através de um terceiro, daqueles Usuários que
+                            descumpram as Condições Gerais de Uso e/ou as Condições Particulares que lhe sejam aplicáveis ou àqueles
+                            que a idealizadora e moderadora, por liberalidade própria, resolver recursar ou retirar do site “Canal
+                            de Doações”.</p>
+            
+                            <div class="text-center">
+                            <h2>Menores de Idade</h2>
+                            </div>
+                            <p>O uso dos serviços do site “Canal de Doações” por menores de idade só poderá ocorrer mediante prévia
+                            autorização de seus responsáveis legais, devidamente assistidos e supervisionados pelos mesmos, que
+                            serão os responsáveis por todos os atos praticados pelos menores através do site “Canal de Doações”. Nos
+                            casos em que expressamente se assinale, o acesso ficará restringido única e exclusivamente aos maiores
+                            de 18 anos.</p>
+                              
+                            <div class="text-center">
+                                <h2>Duração e Término</h2>
+                                </div>
+                            
+                            <p> disponibilização das ferramentas do site “Canal de Doações” tem duração indefinida. Sem prejuízo das
+                            disposições anteriores, a idealizadora e moderadora se reserva ao direito de decidir sobre o
+                            encerramento, a suspensão ou a interrupção das funcionalidades oferecidas, podendo fazê-lo,
+                            unilateralmente e a qualquer momento, sem a obrigatoriedade de prévio aviso aos usuários.</p>
+            
+                            <div class="text-center">
+                              <h2>Contratação</h2>
+                            </div>
+                            <p>Com caráter geral, a idealizadora e moderadora informa aos participantes que não arquivará o documento
+                            eletrônico em que se formalize a relação entre Usuário e o site “Canal de Doações”. Assim mesmo informa
+                            que o Procedimento de Contratação e todos os documentos contratuais que regerão a relação formalizada
+                            entre o Usuário e a idealizadora e moderadora serão redigidos em língua portuguesa.</p>
+            
+                            <div class="text-center">
+                              <h2>Exclusão de garantias e responsabilidade</h2>
+                            
+                            
+                            <h2>Conteúdos</h2>
+                          </div>
+                            <p>
+                            A idealizadora e moderadora do site “Canal de Doações” atua como veiculador de doações e donativos
+                            postados por diversos usuários e, portanto, não atua como prestador de serviços de consultoria ou ainda
+                            intermediário ou participante em nenhum negócio entre os participantes (doador e recebedor). Dessa
+                            forma, o site “Canal de Doações” não assume responsabilidade por nenhuma consequência que possa advir de
+                            qualquer relação entre os participantes (doador e recebedor), seja ela direta ou indireta. Assim, o site
+                            “Canal de Doações” não é responsável por qualquer ação ou omissão do usuário baseada nas informações,
+                            textos, fotos, vídeos ou outros materiais veiculados no site “Canal de Doações”.<br> Adicionalmente, a
+                            idealizadora e moderadora aplica seus melhores esforços para manter o site “Canal de Doações” sempre
+                            atualizado, preciso e completo, mas não se responsabiliza por imprecisão, erro, fraude, inexatidão ou
+                            divergência nos dados, fotos e vídeos ou outros materiais postados pelos usuários ou à imprecisão das
+                            informações aqui contidas. Por isto, nos casos em que um ou mais usuários ou algum terceiro inicie
+                            qualquer tipo de reclamação ou ação legal contra anunciantes ou usuários, todos os envolvidos nas
+                            reclamações ou ações devem eximir de toda responsabilidade a idealizadora, apoiadores e colaboradores. O
+                            site “Canal de Doações” também não se responsabiliza pelas obrigações tributárias que recaiam nas
+                            atividades entre usuários do site.</p>
+            
+                            <p> site “Canal de Doações” não garante a licitude, fiabilidade, utilidade, veracidade, exatidão,
+                            esgotamento e atualidade dos conteúdos, informações disponibilizados e postados pelos usuários.</p>
+                              
+                            <div class="text-center">
+                              <h2>Conduta dos Usuários</h2>
+                            </div>
+                            <p>A idealizadora e moderadora não garante que os Usuários do site “Canal de Doações” o utilizam em
+                            conformidade com a lei, a moral, a ordem pública, as Condições Gerais de Uso e, conforme o caso, as
+                            Condições Particulares. Do mesmo modo, não garante a veracidade e exatidão, esgotamento e/ou
+                            autenticidade dos dados disponibilizados pelos Usuários nas páginas do site “Canal de Doações”.</p>
+            
+                            <p>A idealizadora e moderadora não será responsável, direta ou subsidiariamente, pelos danos e prejuízos de
+                            qualquer natureza derivados da utilização do site “Canal de Doações” por parte dos Usuários ou que
+                            possam derivar-se da falta de veracidade, exatidão e/ou autenticidade dos dados ou informações
+                            proporcionados pelos Usuários, ou pela utilização da identidade de um terceiro por um Usuário através do
+                            site “Canal de Doações”.
+                          </p>
+            
+                            <p>A título enunciativo, mas não limitativo, idealizadora e moderadora não será responsável direta ou
+                            subsidiariamente por:</p>
+            
+                            a) conteúdos, informações, opiniões e manifestações de qualquer Usuário ou de terceiras pessoas ou
+                            entidades que se comuniquem ou se exibam através do site “Canal de Doações” ;<br>
+                            b) danos e prejuízos causados a terceiros originados ou derivados da utilização do site “Canal de
+                            Doações” por parte do Usuário;<br>
+                            c) danos e prejuízos causados pela falta de veracidade, exatidão ou incorreção da identidade dos
+                            Usuários e de toda informação que estes proporcionem ou façam acessíveis a outros Usuários ou a
+                            terceiros;<br>
+                            d) danos e prejuízos originados ou derivados de infrações de qualquer Usuário que afetem aos direitos de
+                            outro Usuário, ou de terceiros, incluindo os diretos de copyright, marca, patentes, informação
+                            confidencial e qualquer outro direito de propriedade intelectual e industrial.</p>
+                          <hr>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Central Modal largo -->
+
+        </form>
+        <!-- Default form register -->
+      </div>
+    </div>
+  </div>
+</section>
+  <script src="js/jquery.mask.min.js"></script>
+  <script src="js/cadastro_dinamico.js"></script>
+  <script src="js/viacep.js"></script>
+  <script src="js/masks.js"></script>
