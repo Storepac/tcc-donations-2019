@@ -56,9 +56,9 @@
         <li class="nav-item">
           <a class="nav-link" href="?pagina=categorias">Necessidades</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="?pagina=entidade">Entidades</a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" href="?pagina=duvidas">Dúvidas</a>
         </li>
