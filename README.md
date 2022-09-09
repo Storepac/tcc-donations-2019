@@ -31,5 +31,4 @@ Criar um aplicativo que facilite essa ação é o objetivo posso dizer que inter
 gatilho forte para aumentar sua visibilidade do site/aplicativo
 Despertar curiosidade nos usuários de forma que ela se lembre que existe em algum lugar um app facilite a simples de doações, quero deixar uma marca, ter meu diferencial no site/app.
 
-Este é um codigo puro de quando foi elabora.
-Acesse para visualizar: https://storepac.github.io/tcc-donations/
+
