@@ -30,3 +30,6 @@ Criar um aplicativo que facilite essa ação é o objetivo posso dizer que inter
 (Um site é bom mas nem todos estão diretos no computador, a maioria está ligadas em smartphones).No aplicativo e site, mostrar os locais de doações, fazer postagens com os doadores e quem está recebendo as doações, feedback sobre o que aconteceu com quem faz a doação, exemplo: Se ele voltou a usar o site/aplicativo, se a experiência foi boa, se voltaria a usar, se está utilizando. No caso de quem recebeu as doações seria como foi também a experiência de receber, gravar vídeos de depoimentos, agradecimentos... tudo que mexa com o emocional do público é um
 gatilho forte para aumentar sua visibilidade do site/aplicativo
 Despertar curiosidade nos usuários de forma que ela se lembre que existe em algum lugar um app facilite a simples de doações, quero deixar uma marca, ter meu diferencial no site/app.
+
+Este é um codigo puro de quando foi elabora.
+Acesse para visualizar: https://storepac.github.io/tcc-donations/
